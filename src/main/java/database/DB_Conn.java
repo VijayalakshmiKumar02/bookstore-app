@@ -22,6 +22,7 @@ public class DB_Conn {
         Class.forName("com.mysql.jdbc.Driver"); 
         con=DriverManager.getConnection("jdbc:mysql://mysql:3306/"+database+"",""+username+"",""+password+""); 
        // stm=con.createStatement(); 
+        System.out.println(username);
         return con;
     }
 
