@@ -11,12 +11,12 @@ import java.sql.*;
  */
 public class DB_Conn {
 
-    private String database="saikiranenterprises", username = "user", password = "password";
-    private Connection con;
+    private String database=System.getenv("MYSQL_DATABASE"), username = System.getenv("MYSQL_USER"), password = System.getenv("MYSQL_PASSWORD");
+ private Connection con;
     
     public Connection getConnection() throws SQLException, ClassNotFoundException  {
         Class.forName("com.mysql.jdbc.Driver"); 
-        con=DriverManager.getConnection("jdbc:mysql://mysql:3306/"+database+"",""+username+"",""+password+""); 
+        con=DriverManager.getConnection("jdbc:mysql://System.getenv("MYSQL_SERVICE_HOST"):System.getenv("MYSQL_SERVICE_PORT")/"+database+"",""+username+"",""+password+""); 
        // stm=con.createStatement(); 
         return con;
     }
